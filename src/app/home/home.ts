@@ -1,6 +1,7 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+
 declare global {
   interface Window {
     electron: {
@@ -35,11 +36,10 @@ export class HomeComponent {
 
   async loadUsers() {
     try {
-      const usuarios = await window.electron.invoke('get-users');
-
-     
+      const usuarios = await window.electron.invoke('get-users');     
       this.lista_usuarios = usuarios;
-      this.cdr.detectChanges(); //esto fuerza a Angular a actualizar la vista
+      //si detecta un cambio actualiza la vista
+      this.cdr.detectChanges()
 
       console.log('Usuarios cargados:', this.lista_usuarios);
 

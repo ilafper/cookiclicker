@@ -1,7 +1,22 @@
 .boton{
-    width: 200px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid black;
+    background-color: rgb(175, 19, 19);
+
 }
 
+
+
+.boton img{
+    width: 140px;
+}
+
+.boton:hover{
+    cursor: pointer;
+    transform: scale(1.005);
+}
 
 
 
