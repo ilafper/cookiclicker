@@ -1,7 +1,13 @@
+<section>
+  <h1>Cuenta Regresiva: {{tiempo}}</h1>
+
+  <button (click)="iniciarTiempo()">Empezar</button>
+</section>
+
 <p>Numero clicks: {{total_cliks}}</p>
 
 <h2>Usuarios</h2>
-<div *ngIf="!lista_usuarios || lista_usuarios.length === 0">
+<div *ngIf="lista_usuarios.length === 0">
   Cargando usuarios...
 </div>
 
@@ -12,7 +18,66 @@
 </ul>
 
 <button class="boton" (click)="sumar()">
- <img src="/assets/hanabi_cooki.png" alt="imagen_hanabi">
+  <img src="/assets/hanabi_cooki.png" alt="imagen_hanabi">
 </button>
 
-<h1>ASDADD</h1>
+
+
+<div *ngIf="modal" class="modal-overlay" (click)="cerrarModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <!-- Encabezado -->
+    <div class="modal-header">
+      <h2>Escribe tu nombre</h2>
+      <button class="close-btn" (click)="cerrarModal()">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <div>
+        <p>Nº de clicks</p> {{total_cliks}}
+      </div>
+
+      <div style="margin-top: 20px;">
+        <label>Nombre:</label>
+        <input type="text" placeholder="Escribe tu nombre">
+      </div>
+
+    </div>
+
+
+    <div class="modal-footer">
+      <button (click)="cerrarModal()">Cancelar</button>
+      <button>
+        Guardar
+      </button>
+    </div>
+  </div>
+
+
+
+  <div *ngIf="modal_cero_cliks" class="modal-overlay" (click)="cerrarModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+
+      <div class="modal-body">
+        <div>
+          <p>Nº de clicks</p> {{total_cliks}}
+        </div>
+        <div>
+          {{mensajePerso}}
+        </div>
+
+      </div>
+
+
+      <div class="modal-footer">
+        <button (click)="cerrarModal()">Cancelar</button>
+        <button>
+          Guardar
+        </button>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
