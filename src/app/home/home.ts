@@ -33,6 +33,10 @@ export class HomeComponent {
 
   nombreGuardar: string = '';
 
+
+  regalos: any[] = [];
+  mostrarRegalos: boolean = false;
+
   constructor(private cdr: ChangeDetectorRef, private ngZone: NgZone, private dbServcice: DatabaseService) { }
 
   ngOnInit() {
@@ -40,11 +44,17 @@ export class HomeComponent {
   }
 
   sumar() {
-    //usar ngzone para que angular detecte los cambios relaizados por que hay veces cuando haces clicks muy rapido no los detecta.
-    this.ngZone.run(() => {
-      this.total_cliks += 1;
-      console.log('Click Sisis', this.total_cliks);
-    });
+    this.total_cliks++;
+
+    // Efecto visual en el botón
+    const boton = document.querySelector('.boton');
+    boton?.classList.add('clickeado');
+    setTimeout(() => {
+      boton?.classList.remove('clickeado');
+    }, 300);
+
+    // Mostrar animación de regalos
+    this.mostrarAnimacionRegalos();
   }
 
   async loadUsers() {
@@ -150,4 +160,36 @@ export class HomeComponent {
     }
   }
 
+
+
+
+
+
+
+
+
+
+  mostrarAnimacionRegalos() {
+    this.mostrarRegalos = true;
+    this.regalos = [];
+
+    // Crear 8-12 regalos en posiciones aleatorias
+    const cantidad = Math.floor(Math.random() * 5) + 8; // 8-12 regalos
+
+    for (let i = 0; i < cantidad; i++) {
+      this.regalos.push({
+        id: i,
+        left: Math.random() * 80 + 10 + '%', // 10% a 90%
+        delay: Math.random() * 0.5 + 's', // Retardo aleatorio
+        size: Math.random() * 15 + 20 + 'px' // Tamaño 20-35px
+      });
+    }
+
+    // Ocultar después de la animación
+    setTimeout(() => {
+      this.mostrarRegalos = false;
+      this.regalos = [];
+    }, 2500);
+
+  }
 }

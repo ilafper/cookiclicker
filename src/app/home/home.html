@@ -1,56 +1,106 @@
-<section>
-  <h1>Tiempo restante: {{tiempo}}</h1>
+<div class="fondo">
+  <div class="contenedor-principal">
+    <!-- SECCIÓN SUPERIOR -->
+    <div class="seccion-superior">
+      <section class="cont-img">
+        <h1>TITULO EN PROCESO</h1>
+      </section>
 
-  <button (click)="iniciarTiempo()">Empezar</button>
-</section>
 
-<p>Numero clicks: {{total_cliks}}</p>
+      <section class="panel-tiempo">
+        <h1><img class="sparcieTime" src="../../assets/sparxieTime.png" alt="">Tiempo restante: {{tiempo}}</h1>
+        <p class="contador">N.º clicks: {{total_cliks}}</p>
+      </section>
 
-
-
-<div class="ranking">
-  <div *ngFor="let cada_usuario of lista_usuarios" class="cadaUno">
-    <div>
-      {{ cada_usuario.name }}
     </div>
-    <div>
-      {{ cada_usuario.n_clicks }}
+
+
+    <section class="medio">
+
+      <div class="izq">
+        <div class="ranking">
+          <h2 class="titulo-ranking">Ranking de Jugadores</h2>
+          <div *ngFor="let cada_usuario of lista_usuarios; let i = index" class="cadaUno">
+            <div class="posicion">{{i + 1}}.</div>
+            <div class="nombre-usuario">{{ cada_usuario.name }}</div>
+            <div class="clicks-usuario">{{ cada_usuario.n_clicks }} clicks</div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="der">
+        <div class="contenedor-boton">
+          <button class="boton" (click)="sumar()">
+            <img src="/assets/hanabi_cooki.png" alt="imagen_hanabi">
+          </button>
+          <section  class="instruccion">
+            <img src="../../assets/spaMartillo2.png" alt="" width="70px">
+            <p >¡Haz clic aquí!</p>
+          <img src="../../assets/spaMartillo1.png" alt="" width="70px">
+          </section>
+          
+
+
+
+          <div class="regalos-container" *ngIf="mostrarRegalos">
+          <div class="regalo" *ngFor="let regalo of regalos" [style.left]="regalo.left"
+            [style.animation-delay]="regalo.delay" [style.width]="regalo.size" [style.height]="regalo.size">
+            🎁
+          </div>
+        </div>
+        </div>
+
+       
+
+
+
+      </div>
+
+
+    </section>
+
+
+    <section class="abajo">
+      <button (click)="iniciarTiempo()">Empezar</button>
+    </section>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- MODAL -->
+  <div *ngIf="modal" class="modal-overlay" (click)="cerrarModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2>Escribe tu nombre</h2>
+        <button class="close-btn" (click)="cerrarModal()">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="puntuacion-modal">
+          <p>Nº de clicks</p>
+          <span class="total-clicks">{{total_cliks}}</span>
+        </div>
+
+        <div class="input-nombre">
+          <label>Nombre:</label>
+          <input type="text" [(ngModel)]="nombreGuardar" placeholder="Escribe tu nombre">
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-cancelar" (click)="cerrarModal()">Cancelar</button>
+        <button class="btn-guardar" (click)="guardarUsuario()">Guardar</button>
+      </div>
     </div>
   </div>
 </div>
-
-
-<button class="boton" (click)="sumar()">
-  <img src="/assets/hanabi_cooki.png" alt="imagen_hanabi">
-</button>
-
-
-<div *ngIf="modal" class="modal-overlay" (click)="cerrarModal()">
-  <div class="modal-content" (click)="$event.stopPropagation()">
-    <!-- Encabezado -->
-    <div class="modal-header">
-      <h2>Escribe tu nombre</h2>
-      <button class="close-btn" (click)="cerrarModal()">&times;</button>
-    </div>
-
-    <div class="modal-body">
-      <div>
-        <p>Nº de clicks</p> {{total_cliks}}
-      </div>
-
-      <div>
-        <label>Nombre:</label>
-        <input type="text"[(ngModel)]="nombreGuardar" placeholder="Escribe tu nombre">
-      </div>
-
-    </div>
-
-    <div class="modal-footer">
-      <button (click)="cerrarModal()">Cancelar</button>
-      <button (click)="guardarUsuario()">
-        Guardar
-      </button>
-    </div>
-  </div>
-
-
