@@ -1,5 +1,6 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
-contextBridge.exposeInMainWorld('electron', {
-  invoke: (channel, args) => ipcRenderer.invoke(channel, args)
+contextBridge.exposeInMainWorld('electronAPI', {
+  obtenerUsuarios: () => ipcRenderer.invoke('get-users'),
+  crearUsuario: (usuario) => ipcRenderer.invoke('create-user', usuario)
 });

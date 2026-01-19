@@ -91,6 +91,15 @@
   cursor: pointer;
 }
 
+
+.cadaUno{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+
+
 /* Animaciones */
 @keyframes fadeIn {
   from { opacity: 0; }

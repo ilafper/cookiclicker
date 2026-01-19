@@ -70,13 +70,32 @@ db.run(`
 // Leer todos los usuarios
 ipcMain.handle('get-users', () => {
   return new Promise((resolve, reject) => {
-    db.all('SELECT * FROM users', (err, rows) => {
+    db.all('SELECT * FROM users order by n_clicks DESC LIMIT 5', (err, rows) => {
       if (err) reject(err);
       else resolve(rows);
     });
   });
 });
 
+
+// Crear nuevo usuario
+ipcMain.handle('create-user', (event, user) => {
+  return new Promise((resolve, reject) => {
+    const { name, n_clicks } = user;
+    db.run(
+      'INSERT INTO users (name, n_clicks) VALUES (?, ?)',
+      [name, n_clicks || 0],
+      function(err) {
+        if (err) reject(err);
+        else resolve({ 
+          id: this.lastID, 
+          name:name, 
+          n_clicks: n_clicks || 0 
+        });
+      }
+    );
+  });
+});
 
 
 
