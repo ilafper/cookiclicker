@@ -6,7 +6,6 @@
         <h1>TITULO EN PROCESO</h1>
       </section>
 
-
       <section class="panel-tiempo">
         <h1><img class="sparcieTime" src="../../assets/sparxieTime.png" alt="">Tiempo restante: {{tiempo}}</h1>
         <p class="contador">N.º clicks: {{total_cliks}}</p>
@@ -19,9 +18,11 @@
 
       <div class="izq">
         <div class="ranking">
-          <h2 class="titulo-ranking">Ranking de Jugadores</h2>
+          <h2 class="titulo-ranking">Ranking</h2>
           <div *ngFor="let cada_usuario of lista_usuarios; let i = index" class="cadaUno">
-            <div class="posicion">{{i + 1}}.</div>
+            <div class="posicion">
+              <img src="../../assets/sparxieN1.png" alt="" width="60">
+            </div>
             <div class="nombre-usuario">{{ cada_usuario.name }}</div>
             <div class="clicks-usuario">{{ cada_usuario.n_clicks }} clicks</div>
           </div>
@@ -36,7 +37,7 @@
           </button>
           <section  class="instruccion">
             <img src="../../assets/spaMartillo2.png" alt="" width="70px">
-            <p >¡Haz clic aquí!</p>
+            <p >¡Haz Click Arriba!</p>
           <img src="../../assets/spaMartillo1.png" alt="" width="70px">
           </section>
           
