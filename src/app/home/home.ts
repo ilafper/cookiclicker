@@ -51,6 +51,7 @@ export class HomeComponent {
   sumar() {
     this.total_cliks++;
     console.log("sissisi Clickk");
+  
     
     // Mostrar animación de regalos
     this.mostrarAnimacionRegalos();

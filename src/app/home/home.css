@@ -49,9 +49,7 @@ html, body {
 
 .seccion-superior {
   padding: 15px;
-  background: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  backdrop-filter: blur(3px);
 }
 
 .seccion-superior h1{
@@ -63,14 +61,6 @@ html, body {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-}
-
-.cont-img img {
-  width: 800px;
-  max-width: 100%;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.1);
-  padding: 5px;
 }
 
 
@@ -102,7 +92,7 @@ html, body {
 }
 
 .panel-tiempo img{
-  width: 70px;
+  width:50px;
 }
 
 .contador {
@@ -120,14 +110,14 @@ html, body {
   gap: 20px;
 }
 
-.izq, .der {
+.izq{
   flex: 1;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  backdrop-filter: blur(2px);
 }
 
 .der {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,7 +127,6 @@ html, body {
 .ranking {
   padding: 10px;
   border-radius: 8px;
-
 }
 
 .ranking h2{
@@ -155,11 +144,15 @@ html, body {
 }
 
 .cadaUno {
+  border-bottom: 5px solid black;
   margin: 8px 0;
-  border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.cadaUno:last-child{
+  border-bottom: none;
 }
 
 .posicion {
@@ -181,8 +174,8 @@ html, body {
   font-family: 'Permanent Marker', cursive;
   font-weight: bold;
   font-size: 20px;
-  color: #ff0000ce;
-  background: rgba(255, 255, 255, 0.74);
+  color: #fffffff3;
+  background: rgba(10, 10, 10, 0.945);
   border-radius: 3px;
   flex-grow: 1;
   backdrop-filter: blur(1px);
@@ -193,7 +186,7 @@ html, body {
   font-family: 'Permanent Marker', cursive;
   font-size: 18px;
   color: #ffffff;
-  background: rgba(153, 0, 0, 0.747);
+  background: rgba(194, 7, 7, 0.767);
   border-radius: 3px;
   min-width: 100px;
   text-align: center;
@@ -205,7 +198,6 @@ html, body {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   text-align: center;
-  backdrop-filter: blur(2px);
 }
 
 .boton {
@@ -358,6 +350,8 @@ html, body {
   padding: 20px;
   background: rgba(0, 0, 0, 0.8);
 }
+
+
 
 .puntuacion-modal {
   padding: 15px;
