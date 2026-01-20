@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "electron": "electron .",
-    "electron:start": "concurrently \"ng serve\" \"wait-on http://localhost:4200 && electron .\""
+    "iniciarApp": "concurrently \"ng serve\" \"wait-on http://localhost:4200 && electron .\""
   },
   "prettier": {
     "printWidth": 100,
