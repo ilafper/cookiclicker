@@ -48,12 +48,16 @@ html, body {
 }
 
 .seccion-superior {
-  margin-bottom: 20px;
   padding: 15px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   backdrop-filter: blur(3px);
 }
+
+.seccion-superior h1{
+  color: white;
+}
+
 
 .cont-img {
   display: flex;
@@ -71,6 +75,7 @@ html, body {
 
 
 .panel-tiempo {
+  font-size: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -78,7 +83,7 @@ html, body {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   backdrop-filter: blur(3px);
-  padding: 15px 30px;
+  padding: 10px 30px;
   min-height: 100px;
   box-sizing: border-box;
   position: relative;
@@ -89,20 +94,20 @@ html, body {
   justify-content: center;
   align-items: center;
   font-family: 'Permanent Marker', cursive;
-  font-size: 32px;
+  font-size: 20px;
   color: #ffffff;
   text-shadow: 3px 3px 0 #000;
   margin: 0;
   transform: rotate(-1deg);
 }
 
-.panel-tiempo .sparcieTime{
+.panel-tiempo img{
   width: 70px;
 }
 
 .contador {
   font-family: 'Permanent Marker', cursive;
-  font-size: 25px;
+  font-size: 20px;
   color: #ffffff;
   text-shadow: 3px 3px 0 #000;
   margin: 0;
@@ -140,9 +145,8 @@ html, body {
 }
 
 .titulo-ranking {
-  padding: 5px;
   font-family: 'Permanent Marker', cursive;
-  font-size: 28px;
+  font-size: 20px;
   color: #ffffff;
   text-align: center;
   text-shadow: 3px 3px 0 #000;
@@ -164,6 +168,10 @@ html, body {
   font-family: 'Permanent Marker', cursive;
   font-size: 18px;
   color: #ffffff;
+}
+
+.posicion img{
+  width: 80px;
 }
 
 .nombre-usuario {
@@ -246,7 +254,6 @@ html, body {
   padding: 20px;
   text-align: center;
   border-radius: 10px;
-  margin-top: 20px;
 }
 
 .abajo button {

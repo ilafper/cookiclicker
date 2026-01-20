@@ -22,6 +22,10 @@ declare global {
 })
 export class HomeComponent {
 
+  lista_imagenes_ranking=['SparxieN1Dorada.png','SparxieN2.png','SparxieN3.png','SparxieN4.png','SparxieN5.png'];
+
+  
+
   total_cliks: number = 0;
   lista_usuarios: any[] = [];
 
@@ -33,6 +37,7 @@ export class HomeComponent {
 
   nombreGuardar: string = '';
 
+  botonDesacctivado:boolean=true;
 
   regalos: any[] = [];
   mostrarRegalos: boolean = false;
@@ -51,7 +56,7 @@ export class HomeComponent {
     boton?.classList.add('clickeado');
     setTimeout(() => {
       boton?.classList.remove('clickeado');
-    }, 300);
+    }, 10);
 
     // Mostrar animación de regalos
     this.mostrarAnimacionRegalos();
@@ -68,11 +73,14 @@ export class HomeComponent {
 
     } catch (err) {
       console.error('Error cargando usuarios, reintentando...', err);
-      setTimeout(() => this.loadUsers(), 200);
+      setTimeout(() => this.loadUsers(), 100);
     }
   }
 
   iniciarTiempo() {
+
+    this.botonDesacctivado=false;
+
     if (this.intervalo) {
       clearInterval(this.intervalo);
     }
@@ -118,6 +126,7 @@ export class HomeComponent {
   reiniciar() {
     this.total_cliks = 0;
     this.tiempo = 5;
+    this.botonDesacctivado=true;
   }
 
 

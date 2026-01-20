@@ -21,7 +21,7 @@
           <h2 class="titulo-ranking">Ranking</h2>
           <div *ngFor="let cada_usuario of lista_usuarios; let i = index" class="cadaUno">
             <div class="posicion">
-              <img src="../../assets/sparxieN1.png" alt="" width="60">
+              <img src='../../assets/{{lista_imagenes_ranking[i]}}' alt="imagen ranking {{i+1}}">
             </div>
             <div class="nombre-usuario">{{ cada_usuario.name }}</div>
             <div class="clicks-usuario">{{ cada_usuario.n_clicks }} clicks</div>
@@ -32,13 +32,15 @@
 
       <div class="der">
         <div class="contenedor-boton">
-          <button class="boton" (click)="sumar()">
+          <button [disabled]="botonDesacctivado" class="boton" (click)="sumar()">
             <img src="/assets/hanabi_cooki.png" alt="imagen_hanabi">
           </button>
           <section  class="instruccion">
             <img src="../../assets/spaMartillo2.png" alt="" width="70px">
-            <p >¡Haz Click Arriba!</p>
-          <img src="../../assets/spaMartillo1.png" alt="" width="70px">
+
+            <p >¡Haz Click en el boton!</p>
+          
+            <img src="../../assets/spaMartillo1.png" alt="" width="70px">
           </section>
           
 
