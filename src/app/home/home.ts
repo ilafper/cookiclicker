@@ -50,14 +50,8 @@ export class HomeComponent {
 
   sumar() {
     this.total_cliks++;
-
-    // Efecto visual en el botón
-    const boton = document.querySelector('.boton');
-    boton?.classList.add('clickeado');
-    setTimeout(() => {
-      boton?.classList.remove('clickeado');
-    }, 10);
-
+    console.log("sissisi Clickk");
+    
     // Mostrar animación de regalos
     this.mostrarAnimacionRegalos();
   }
